@@ -1,0 +1,32 @@
+This lab focuses on the Collatz program we discussed in class. 
+Recall that it is believed (but hasn't been proved) that this loop will terminate when it is started with any positive integer value for x.
+
+If we wanted to check whether the loop terminates for all initial values up to 1000, 
+we could add an outer loop to the Collatz code and try it for all of these initial values.
+Of course, we'd have to think about what should happen if we start it with a value for which it doesn't terminate
+(but it's safe enough, because people have tried running it for very large initial values).
+
+However, x will take on many values during each execution of the Collatz loop.
+If any of these values has been previously checked, then we don't need to finish the loop -- we know that it's going to terminate.
+
+For example, if we run the loop with initial value 500 and it terminates, 
+then if we start it again with initial value 1000, th
+e first iteration will divide x by 2, giving 500, and we know that starting at 1000 will also terminate, 
+without doing much work. Of course, in general the value of x jumps around getting bigger and smaller, 
+which is what makes it so hard to know if the loop is making progress.
+
+Suppose we are given an input, n, and we want to check whether all values up to and including n cause the loop to terminate.
+Use the idea of reducing work by creating a list from 1 to n and marking each value whenever you know that the loop terminates 
+when started from that value. 
+(We will see this idea of capturing previous work so that we don't have to repeat it when we look at dynamic programming algorithms.)
+
+Count the total number of iterations of the Collatz loop as a function of n, show the curve and discuss it briefly.
+
+From these preliminary results, investigate if there's a good order to use for the outer loop, show some results, and discuss briefly.
+
+If the upper bound we're checking is n, then x can take on values bigger than n during iterations. 
+Explore what happens when you make the list longer than n. Is there a sensible upper bound to how long it should be?
+
+If you have time, investigate whether there are any patterns of how x converges to its final value of 1.
+Do intermediate values have any structure? Do different runs preferentially reach previous values, or is it uniform?
+Does every terminating run also pass through x = 2? (You might want to explore this with a relatively small value of n.)
